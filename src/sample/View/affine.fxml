@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.AffineController">
+    <children>
+        <AnchorPane fx:id="mainPane" layoutX="-1.0" layoutY="45.0" prefHeight="583.0" prefWidth="1000.0" style="-fx-background-color: #303030;" stylesheets="@sample.css">
+         <children>
+            <Label layoutX="50.0" layoutY="525.0" text="Alpha">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="alphaTF" layoutX="93.0" layoutY="520.0" promptText="Does not have cd with 26">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="291.0" layoutY="525.0" text="Beta">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="betaTF" layoutX="332.0" layoutY="520.0" promptText="Beta &gt;= 0 &amp; Beta &lt;= 25">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="528.0" layoutY="526.0" text="String">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="stringTF" layoutX="577.0" layoutY="520.0" promptText="Only letters">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </JFXTextField>
+            <AnchorPane fx:id="pane" layoutX="5.0" layoutY="205.0" prefHeight="230.0" prefWidth="1000.0" />
+            <JFXButton fx:id="runBtn" layoutX="773.0" layoutY="520.0" onAction="#runBtnOnClick" prefHeight="25.0" prefWidth="65.0" text="Run">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </JFXButton>
+            <AnchorPane fx:id="pane2" layoutX="5.0" prefHeight="205.0" prefWidth="1000.0">
+               <children>
+                  <Label fx:id="fnLabel" layoutX="208.0" layoutY="30.0" text="ƒ(𝑥) = α𝑥 + β">
+                     <font>
+                        <Font size="100.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <JFXButton fx:id="copyBtn" disable="true" layoutX="849.0" layoutY="520.0" onAction="#copyBtnOnClick" prefHeight="25.0" prefWidth="65.0" text="Copy">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="backBtn" layoutX="925.0" layoutY="520.0" onAction="#backBtnOnClick" prefHeight="25.0" prefWidth="65.0" text="Back">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+        <AnchorPane fx:id="iconPane" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: #353535;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <JFXHamburger fx:id="hamburger" layoutX="11.0" layoutY="13.0" stylesheets="@sample.css" />
+                <JFXButton fx:id="hamburgerBtn" onAction="#hamburgerBtnOnClick" prefHeight="45.0" prefWidth="52.0" text=" " />
+            </children>
+        </AnchorPane>
+        <JFXDrawer fx:id="drawer" defaultDrawerSize="45.0" direction="TOP" layoutX="52.0" prefHeight="45.0" prefWidth="946.0" />
+    </children>
+</AnchorPane>

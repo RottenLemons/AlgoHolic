@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="549.0" prefWidth="700.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.AnimationController">
+    <children>
+        <GridPane fx:id="grid" hgap="6.0" layoutX="9.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="536.0" prefWidth="685.0" vgap="15.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="5.0">
+            <rowConstraints>
+                <RowConstraints maxHeight="507.33335367838544" minHeight="10.0" prefHeight="491.3332926432292" valignment="BOTTOM" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="268.66668701171875" minHeight="10.0" prefHeight="42.00004069010413" valignment="BOTTOM" vgrow="ALWAYS" />
+            </rowConstraints>
+        </GridPane>
+    </children></AnchorPane>

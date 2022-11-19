@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="45.0" prefWidth="946.0" style="-fx-background-color: #252525;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.DrawerController">
+   <children>
+      <JFXButton fx:id="sortingBtn" onAction="#drawerBtnOnClick" prefHeight="45.0" prefWidth="236.5" text="Sorting" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="pathfindingBtn" layoutX="237.0" onAction="#drawerBtnOnClick" prefHeight="45.0" prefWidth="236.5" text="Pathfinding" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="hashingBtn" layoutX="473.0" onAction="#drawerBtnOnClick" prefHeight="45.0" prefWidth="236.5" text="Hashing" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="aboutBtn" layoutX="710.0" onAction="#drawerBtnOnClick" prefHeight="45.0" prefWidth="236.5" text="About AlgoHolic" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

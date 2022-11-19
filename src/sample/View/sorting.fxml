@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.SortingController">
+    <children>
+        <AnchorPane fx:id="mainPane" layoutX="-1.0" layoutY="45.0" prefHeight="583.0" prefWidth="1000.0" style="-fx-background-color: #303030;" stylesheets="@sample.css">
+         <children>
+            <AnchorPane fx:id="anchorPane" layoutX="300.0" layoutY="3.0" prefHeight="583.0" prefWidth="700.0">
+               <children>
+                  <ImageView fx:id="play" fitHeight="45.0" fitWidth="34.0" layoutX="646.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@play.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton fx:id="playBtn" layoutX="640.0" layoutY="7.0" onAction="#playBtnOnClick" prefHeight="33.0" prefWidth="45.0" text=" " visible="false" />
+                  <Slider fx:id="sortSlider" layoutX="156.0" layoutY="7.0" majorTickUnit="1.0" prefHeight="33.0" prefWidth="478.0" showTickLabels="true" value="100.0" visible="false" />
+                  <Label fx:id="time" layoutX="14.0" layoutY="14.0" prefHeight="20.0" prefWidth="128.0">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="12.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+            <AnchorPane layoutY="1.0" prefHeight="583.0" prefWidth="300.0">
+               <children>
+                  <JFXTextArea fx:id="infoTF" editable="false" layoutX="16.0" layoutY="39.0" prefHeight="356.0" prefWidth="267.0" />
+                  <Label layoutX="19.0" layoutY="530.0" prefHeight="32.0" text="Algorithm" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" layoutX="19.0" layoutY="453.0" prefHeight="32.0" styleClass="control-label" text="Delay" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="delaySpinner" layoutX="92.0" layoutY="453.0" onScroll="#spinnerScrollAction" prefHeight="32.0" prefWidth="115.0" />
+                  <JFXComboBox fx:id="algoCB" layoutX="92.0" layoutY="533.0" onAction="#algoCBOnClick" prefHeight="25.0" prefWidth="115.0" />
+                  <JFXButton fx:id="startBtn" layoutX="219.0" layoutY="530.0" onAction="#startBtnOnClick" prefHeight="32.0" prefWidth="62.0" text="Start" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Label alignment="CENTER_RIGHT" layoutX="19.0" layoutY="491.0" prefHeight="32.0" styleClass="control-label" text="List" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="listTF" layoutX="92.0" layoutY="492.0" prefHeight="30.0" prefWidth="115.0" promptText="e.g. 1,2,3,4,5,6,7,8,9">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="enterBtn" layoutX="219.0" layoutY="491.0" onAction="#enterBtnOnClick" prefHeight="32.0" prefWidth="62.0" text="Enter" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="randomBtn" layoutX="22.0" layoutY="411.0" onAction="#randomBtnOnClick" prefHeight="30.0" prefWidth="115.0" text="Rearrange">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <ToggleButton fx:id="tb1" layoutX="16.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Java">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="12.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="tb2" layoutX="105.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Python">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="12.0" />
+                     </font>
+                  </ToggleButton>
+                  <ToggleButton fx:id="tb3" layoutX="194.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Description">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="12.0" />
+                     </font>
+                  </ToggleButton>
+                  <JFXButton fx:id="compareBtn" layoutX="162.0" layoutY="411.0" onAction="#compareBtnOnClick" prefHeight="30.0" prefWidth="115.0" text="Comparison">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+        <AnchorPane fx:id="iconPane" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: #353535;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <JFXHamburger fx:id="hamburger" layoutX="11.0" layoutY="13.0" stylesheets="@sample.css" />
+                <JFXButton fx:id="hamburgerBtn" onAction="#hamburgerBtnOnClick" prefHeight="45.0" prefWidth="52.0" text=" " />
+            </children>
+        </AnchorPane>
+        <JFXDrawer fx:id="drawer" defaultDrawerSize="45.0" direction="TOP" layoutX="52.0" prefHeight="45.0" prefWidth="946.0" />
+    </children>
+</AnchorPane>

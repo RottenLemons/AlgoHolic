@@ -1,0 +1,132 @@
+import java.util.ArrayDeque;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class Dijkstra {
+  public static class Vertex<T> {
+	T id;
+	private Map<Vertex, Integer> neighbors;
+	Integer cost;
+	public Vertex(T id) {
+	  this.id = id;
+	  this.neighbors = new HashMap<>();
+	  cost = Integer.MAX_VALUE;
+	}
+	public Map<Vertex, Integer> getNeighbors() {
+	  return neighbors;
+	}
+	public void setNeighbors(Map<Vertex, Integer> neighbors) {
+	  this.neighbors = neighbors;
+	}
+	public Number getCost() {
+	  return cost;
+	}
+	public void setCost(Integer cost) {
+	  this.cost = cost;
+	}
+	public T getId() {
+	  return id;
+	}
+	public void setId(T id) {
+	  this.id = id;
+	}
+	public void addNeighbor(Vertex neighbor, Integer cost) {
+	  this.neighbors.put(neighbor, cost);
+	}
+  }
+  public static class Graphe<T> {
+	private Map<T, Vertex> vertices;
+	public Queue<Vertex> visited;
+	public Deque<T> paths = new ArrayDeque<>();
+	public HashMap<T, Integer> distances;
+	public HashMap<T, T> preds;
+	public Graphe(Map<T, Vertex> vertices) {
+	  this.vertices = vertices;
+	  this.preds = new HashMap<>();
+	  this.paths = new ArrayDeque<>();
+	  this.distances = new HashMap<>();
+	  this.visited = new PriorityQueue(new Comparator<Vertex>() {
+		@Override
+		public int compare(Vertex o1, Vertex o2) {
+		  return o1.cost.compareTo(o2.cost);
+		}
+	  });
+	}
+	public void initDistance() {
+	  this.vertices.keySet().forEach((key) -> {
+		distances.put(key, Integer.MAX_VALUE);
+		this.vertices.get(key).setCost(Integer.MAX_VALUE);
+	  });
+	}
+	public void initStart(T dep) {
+	  initDistance();
+	  this.distances.put(dep, 0);
+	}
+	public Integer getCurrentDistance(T id) {
+	  return this.distances.get(id);
+	}
+	public Vertex extractMin() {
+	  Vertex current = null;
+	  try {
+		current = this.visited.remove();
+	  } catch (Exception e) {
+	  }
+	  return current;
+	}
+	public Map<T, Vertex> getVertices() {
+	  return vertices;
+	}
+	public void setVertices(Map<T, Vertex> vertices) {
+	  this.vertices = vertices;
+	}
+	public void executeOnetoAll(T src) {
+	  this.initStart(src);
+	  Vertex origin = this.vertices.get(src);
+	  if (origin != null) {
+		origin.setCost(0);
+		this.visited.add(this.vertices.get(origin.id));
+		while (!this.visited.isEmpty()) {
+		  Vertex u = this.extractMin();
+		  this.findMinimalDistancesInNeighbor(u);
+		}
+	  } else {
+		System.out.println("vertex not existing");
+	  }
+	}
+
+	private void findMinimalDistancesInNeighbor(Vertex u) {
+	  u.getNeighbors().keySet().forEach((key) -> {
+		int cout = (int) u.getNeighbors().get(key);
+		Vertex v = (Vertex) key;
+		if (this.getCurrentDistance((T) v.id) > (this.getCurrentDistance((T) u.id) + cout)) {
+		  this.distances.put((T) v.id, (this.getCurrentDistance((T) u.id) + cout));
+		  v.setCost((this.getCurrentDistance((T) u.id) + cout));
+		  this.visited.add(v);
+		  this.preds.put((T) v.id, (T) u.id);
+		} else {
+		}
+	  });
+	}
+	public void executeOnetoOne(T src, T goal) {
+	this.executeOnetoAll(src);
+	Vertex origin = this.vertices.get(src);
+	Vertex dest = this.vertices.get(goal);
+	if (origin != null && dest != null) {
+	  T step = goal;
+	  while (origin.id != step) {
+		this.paths.add(step);
+		step = this.preds.get(step);
+	  }
+	  this.paths.add(src);
+	  this.printPaths(src, goal);
+	} else {
+	  System.out.println("Path not existing");
+	}
+		   System.out.println();
+  }
+  }
+}

@@ -1,0 +1,45 @@
+import sample.Controller.InfoController;
+import sample.Controller.PathfindingController;
+
+import java.util.*;
+
+public class DFSStrategyy {
+
+    private void executeDijkstra(Grid model, HashMap<Tile, Tile> parents, HashMap<Tile, Integer> weights) {
+        Tile start = model.getStart();
+
+        Set<Tile> unvisited = new HashSet<>();
+        Stack<Tile> toVisit = new Stack<>();
+
+        model.getTiles().stream().filter((tile) -> !(tile.isWall())).map((tile) -> {
+            weights.put(tile, Integer.MAX_VALUE);
+            return tile;
+        }).forEachOrdered((tile) -> {
+            parents.put(tile, null);
+        });
+        weights.put(start, 0);
+        toVisit.add(model.getStart());
+        while (!toVisit.isEmpty()) {
+            Tile minWeightTile = toVisit.peek();
+            toVisit.remove(minWeightTile);
+            if (weights.get(minWeightTile) == Integer.MAX_VALUE) {
+                break;
+            }
+
+            unvisited.add(minWeightTile);
+            if (minWeightTile == model.getEnd()) break;
+            ArrayList<Tile> neighbours = model.getTileNeighbors(minWeightTile);
+            for (Tile tile: neighbours) {
+                if (!unvisited.contains(tile)) {
+                    int newWeight = 1 + weights.get(minWeightTile);
+                    if (weights.get(tile) > newWeight) {
+                        weights.put(tile, newWeight);
+                        parents.put(tile, minWeightTile);
+                        toVisit.add(tile);
+                    }
+                }
+            }
+
+        }
+    }
+}

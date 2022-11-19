@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="514.0" style="-fx-background-color: #303030;" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.AboutController">
+   <children>
+      <Label fx:id="label" layoutX="41.0" layoutY="129.0" prefHeight="53.0" prefWidth="197.0" text="Version:">
+         <font>
+            <Font name="Segoe UI Semilight" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="121.0" fitWidth="306.0" layoutX="104.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="73.0" layoutY="231.0" prefHeight="86.0" prefWidth="404.0" text="AlgoHolic is a tool anyone can use to teach or learn algorithms by helping them visualise them." wrapText="true">
+         <font>
+            <Font name="Segoe UI Semilight" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutY="359.0" prefHeight="0.0" prefWidth="514.0" />
+      <AnchorPane fx:id="pane" layoutY="359.0" prefHeight="273.0" prefWidth="514.0" />
+      <Label layoutX="71.0" layoutY="317.0" prefHeight="42.0" prefWidth="69.0" text="Language: " wrapText="true">
+         <font>
+            <Font name="Segoe UI Semilight" size="14.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="languageCB" layoutX="148.0" layoutY="325.0" onAction="#languageCBOnClick" prefHeight="25.0" prefWidth="175.0" />
+      <Label layoutX="275.0" layoutY="182.0" prefHeight="53.0" prefWidth="184.0" text="Mahir Shah">
+         <font>
+            <Font name="Segoe UI Semilight" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="389.0" layoutY="129.0" prefHeight="53.0" prefWidth="69.0" text="v1.0">
+         <font>
+            <Font name="Segoe UI Semilight" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="label2" layoutX="41.0" layoutY="182.0" prefHeight="53.0" prefWidth="218.0" text="Created By:">
+         <font>
+            <Font name="Segoe UI Semilight" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="343.0" layoutY="317.0" prefHeight="42.0" prefWidth="103.0" text="Type Something!" wrapText="true">
+         <font>
+            <Font name="Segoe UI Semilight" size="14.0" />
+         </font>
+      </Label>
+   </children></AnchorPane>

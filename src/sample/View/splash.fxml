@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="215.0" prefWidth="594.0" style="-fx-background-color: #303030;" stylesheets="@sample.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.SplashController">
+   <children>
+      <AnchorPane fx:id="grid" layoutX="17.0" layoutY="129.0" prefHeight="40.0" prefWidth="560.0" />
+      <ImageView fitHeight="90.0" fitWidth="384.0" layoutX="105.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="19.0" layoutY="181.0" prefHeight="19.0" prefWidth="419.0" text="Label">
+         <font>
+            <Font name="Segoe UI Semilight" size="13.0" />
+         </font>
+      </Label>
+   </children></AnchorPane>

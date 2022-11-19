@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #303030;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.InfoController">
+    <children>
+        <AnchorPane fx:id="mainPane" layoutX="-1.0" layoutY="45.0" prefHeight="583.0" prefWidth="1000.0" style="-fx-background-color: #303030;" stylesheets="@sample.css">
+            <children>
+                <AnchorPane fx:id="anchorPane" layoutX="507.0" layoutY="1.0" prefHeight="273.0" prefWidth="493.0" />
+            <TabPane prefHeight="583.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab closable="false" text="Dijkstra Strategy">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="340.0" prefWidth="437.0">
+                           <children>
+                                    <JFXButton fx:id="runBtn" layoutX="485.0" layoutY="473.0" onAction="#runBtnOnClick" style="-fx-background-radius: 0 0 0 0;" text="Run">
+                                        <font>
+                                            <Font name="Segoe UI Semilight" size="12.0" />
+                                        </font>
+                                    </JFXButton>
+                                    <Label alignment="CENTER_RIGHT" layoutX="356.0" layoutY="470.0" prefHeight="32.0" styleClass="control-label" text="Delay" textFill="WHITE">
+                                        <font>
+                                            <Font name="Segoe UI Semilight" size="14.0" />
+                                        </font>
+                                    </Label>
+                                    <Spinner fx:id="delaySpinner" layoutX="399.0" layoutY="470.0" onScroll="#spinnerScrollAction" prefHeight="32.0" prefWidth="79.0" />
+                              <JFXTextArea fx:id="infoTF" editable="false" layoutX="14.0" layoutY="13.0" prefHeight="524.0" prefWidth="308.0" wrapText="true" />
+                              <Label layoutX="555.0" layoutY="20.0" prefHeight="427.0" prefWidth="435.0" text="&#10;&#10;1. The very first step is to mark all nodes as unvisited,&#10;&#10;2. Mark the picked starting node with a current distance of 0 and the rest nodes with infinity, &#10;&#10;3. Now, fix the starting node as the current node,&#10;&#10;4. For the current node, analyse all of its unvisited neighbours and measure their distances by adding the current distance of the current node to the weight of the edge that connects the neighbour node and current node,&#10;&#10;5. Compare the recently measured distance with the current distance assigned to the neighbouring node and make it as the new current distance of the neighbouring node,&#10;&#10;6. After that, consider all of the unvisited neighbours of the current node, mark the current node as visited,&#10;&#10;7. If the destination node has been marked visited then stop, an algorithm has ended, and&#10;&#10;8. Else, choose the unvisited node that is marked with the least distance, fix it as the new current node, and repeat the process again from step 4. " wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="555.0" prefHeight="45.0" prefWidth="85.0" text="Explanation:&#10;" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane fx:id="pane" layoutX="339.0" layoutY="14.0" prefHeight="440.0" prefWidth="200.0" />
+                              <Label layoutX="341.0" layoutY="517.0" text="Tile Picker:">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="backBtn" layoutX="946.0" layoutY="521.0" onAction="#backBtnOnClick" style="-fx-background-radius: 0 0 0 0;" text="Back">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXComboBox fx:id="tileCB" layoutX="417.0" layoutY="514.0" prefHeight="25.0" prefWidth="121.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="AStar Strategy">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="runBtn2" layoutX="484.0" layoutY="431.0" onAction="#runBtn2OnClick" style="-fx-background-radius: 0 0 0 0;" text="Run">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label alignment="CENTER_RIGHT" layoutX="355.0" layoutY="428.0" prefHeight="32.0" styleClass="control-label" text="Delay" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Spinner fx:id="delaySpinner2" layoutX="398.0" layoutY="428.0" onScroll="#spinnerScrollAction2" prefHeight="32.0" prefWidth="79.0" />
+                              <JFXTextArea fx:id="infoTF2" editable="false" layoutX="14.0" layoutY="13.0" prefHeight="524.0" prefWidth="308.0" wrapText="true" />
+                              <Label layoutX="554.0" layoutY="20.0" prefHeight="513.0" prefWidth="435.0" text="Consider a square grid having many obstacles and we are given a starting cell and a target cell. We want to reach the target cell (if possible) from the starting cell as quickly as possible. Here A* Search Algorithm comes to the rescue.&#10;What A* Search Algorithm does is that at each step it picks the node according to a value-‘f’ which is a parameter equal to the sum of two other parameters – ‘g’ and ‘h’. At each step it picks the node/cell having the lowest ‘f’, and process that node/cell.&#10;We define ‘g’ and ‘h’ as simply as possible below&#10;g = the movement cost to move from the starting point to a given square on the grid, following the path generated to get there. &#10;h = the estimated movement cost to move from that given square on the grid to the final destination. This is often referred to as the heuristic, which is nothing but a kind of smart guess. We really don’t know the actual distance until we find the path, because all sorts of things can be in the way (walls, water, etc.). There can be many ways to calculate this ‘h’ which are discussed in the later sections.&#10;&#10;&#10;The Manhattan Distance Heuristic: This method of computing h(n) is called the Manhattan method because it is computed by calculating the total number of squares moved horizontally and vertically to reach the target square from the current square. We ignore diagonal movement and any obstacles that might be in the way.&#10;&#10;The Euclidean Distance Heuristic: This heuristic is slightly more accurate than its Manhattan counterpart. If we try run both simultaneously on the same maze, the Euclidean path finder favors a path along a straight line. This is more accurate but it is also slower because it has to explore a larger area to find the path.&#10;&#10;The Diagonal Distance Heuristic: This heuristic is the balance of the future cost to the target and the current task,&#10;" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="555.0" layoutY="-9.0" prefHeight="45.0" prefWidth="85.0" text="Explanation:&#10;" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane fx:id="pane2" layoutX="339.0" layoutY="14.0" prefHeight="400.0" prefWidth="200.0" />
+                              <Label layoutX="340.0" layoutY="475.0" text="Tile Picker:">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="backBtn2" layoutX="946.0" layoutY="521.0" onAction="#backBtnOnClick" style="-fx-background-radius: 0 0 0 0;" text="Back">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXComboBox fx:id="tileCB2" layoutX="416.0" layoutY="472.0" prefHeight="25.0" prefWidth="121.0" />
+                              <Label layoutX="338.0" layoutY="514.0" prefHeight="20.0" prefWidth="61.0" text="Heuristics:">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXComboBox fx:id="heuristicCB" layoutX="418.0" layoutY="511.0" prefHeight="25.0" prefWidth="121.0" />
+                              <Separator layoutX="555.0" layoutY="286.0" prefHeight="3.0" prefWidth="433.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="DFS Strategy">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXButton fx:id="runBtn3" layoutX="485.0" layoutY="473.0" onAction="#runBtn3OnClick" style="-fx-background-radius: 0 0 0 0;" text="Run">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label alignment="CENTER_RIGHT" layoutX="356.0" layoutY="470.0" prefHeight="32.0" styleClass="control-label" text="Delay" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Spinner fx:id="delaySpinner3" layoutX="399.0" layoutY="470.0" onScroll="#spinnerScrollAction3" prefHeight="32.0" prefWidth="79.0" />
+                              <JFXTextArea fx:id="infoTF3" editable="false" layoutX="14.0" layoutY="13.0" prefHeight="524.0" prefWidth="308.0" wrapText="true" />
+                              <Label layoutX="555.0" layoutY="13.0" prefHeight="425.0" prefWidth="435.0" text="The main strategy of depth-first search is to explore deeper into the graph whenever possible. Depth-first search explores edges that come out of the most recently discovered vertex, s. Only edges going to unexplored vertices are explored. When all of s’s edges have been explored, the search backtracks until it reaches an unexplored neighbor. This process continues until all of the vertices that are reachable from the original source vertex are discovered. If there are any unvisited vertices, depth-ﬁrst search selects one of them as a new source and repeats the search from that vertex. The algorithm repeats this entire process until it has discovered every vertex. This algorithm is careful not to repeat vertices, so each vertex is explored once. DFS uses a stack data structure to keep track of vertices.&#10;&#10;&#10;Depth-first search is used in topological sorting, scheduling problems, cycle detection in graphs, and solving puzzles with only one solution, such as a maze or a sudoku puzzle. Other applications involve analyzing networks, for example, testing if a graph is bipartite. Depth-first search is often used as a subroutine in network flow algorithms such as the Ford-Fulkerson algorithm. DFS is also used as a subroutine in matching algorithms in graph theory such as the Hopcroft–Karp algorithm. Depth-first searches are used in mapping routes, scheduling, and finding spanning trees." wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="555.0" prefHeight="45.0" prefWidth="85.0" text="Explanation:&#10;" wrapText="true">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane fx:id="pane3" layoutX="339.0" layoutY="14.0" prefHeight="440.0" prefWidth="200.0" />
+                              <Label layoutX="341.0" layoutY="517.0" text="Tile Picker:">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="14.0" />
+                                 </font>
+                              </Label>
+                              <JFXButton fx:id="backBtn3" layoutX="946.0" layoutY="521.0" onAction="#backBtnOnClick" style="-fx-background-radius: 0 0 0 0;" text="Back">
+                                 <font>
+                                    <Font name="Segoe UI Semilight" size="12.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXComboBox fx:id="tileCB3" layoutX="417.0" layoutY="514.0" prefHeight="25.0" prefWidth="121.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            </children></AnchorPane>
+        <AnchorPane fx:id="iconPane" prefHeight="45.0" prefWidth="52.0" style="-fx-background-color: #353535;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <JFXHamburger fx:id="hamburger" layoutX="11.0" layoutY="13.0" stylesheets="@sample.css" />
+                <JFXButton fx:id="hamburgerBtn" onAction="#hamburgerBtnOnClick" prefHeight="45.0" prefWidth="52.0" text=" " />
+            </children>
+        </AnchorPane>
+        <JFXDrawer fx:id="drawer" defaultDrawerSize="45.0" direction="TOP" layoutX="52.0" prefHeight="45.0" prefWidth="946.0" />
+    </children>
+</AnchorPane>
